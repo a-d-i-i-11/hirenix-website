@@ -1,248 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Hirenix Group Pvt Ltd</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ================== DESIGN TOKENS ================== */
-:root{
-  --bg:#0B0D10;
-  --gold:#C6A75E;
-  --blue:#4FA3FF;
-  --soft:#B5B5B5;
-  --glass:rgba(255,255,255,.08);
-}
-
-/* ================== BASE ================== */
 *{box-sizing:border-box}
-html,body{margin:0; padding:0}
+html,body{margin:0;padding:0}
+
+/* 🌊 AURORA / WATER BACKGROUND */
 body{
   font-family:'Inter',sans-serif;
-  color:#fff;
+  color:#0b0d10;
   background:
-    radial-gradient(1200px 600px at 20% -10%, rgba(79,163,255,.18), transparent 40%),
-    radial-gradient(900px 500px at 80% 110%, rgba(198,167,94,.18), transparent 45%),
-    linear-gradient(180deg, #07080B 0%, var(--bg) 60%, #07080B 100%);
-  overflow-x:hidden;
+    radial-gradient(circle at 10% 20%, #e8f3ff, transparent 40%),
+    radial-gradient(circle at 80% 10%, #f3e8ff, transparent 40%),
+    radial-gradient(circle at 50% 90%, #e8fff5, transparent 45%),
+    linear-gradient(120deg,#f9fbff,#eef2ff,#fdfdfd);
+  background-size:200% 200%;
+  animation:bgFlow 18s ease infinite;
 }
 
-/* ================== ANIMATIONS ================== */
-@keyframes sweep {
+@keyframes bgFlow{
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
   100%{background-position:0% 50%}
 }
-@keyframes rise {
-  from{opacity:0; transform:translateY(40px)}
-  to{opacity:1; transform:translateY(0)}
+
+/* ================= HEADER ================= */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:999;
+  background:rgba(255,255,255,.65);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(0,0,0,.06);
 }
-.reveal{opacity:0; transform:translateY(40px); transition:1s ease}
-.reveal.show{opacity:1; transform:none}
 
-/* ================== LAYOUT ================== */
-section{padding:120px 20px}
-.container{max-width:1200px; margin:auto}
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-/* ================== HERO ================== */
+.logo{
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+.nav a{
+  text-decoration:none;
+  color:#111;
+  margin-left:24px;
+  font-size:.9rem;
+}
+
+/* ================= SECTIONS ================= */
+section{
+  padding:140px 20px 120px;
+}
+
+.container{
+  max-width:1200px;
+  margin:auto;
+}
+
+/* ================= HERO ================= */
 .hero{
   min-height:100vh;
-  display:flex; align-items:center; justify-content:center;
-  position:relative;
+  display:flex;
+  align-items:center;
 }
-.hero-bg{
-  position:absolute; inset:0;
-  background:linear-gradient(-45deg, #0B0D10, #101726, #0B0D10);
-  background-size:300% 300%;
-  animation:sweep 18s ease infinite;
-  opacity:.9;
-}
-.hero-card{
-  position:relative;
-  max-width:900px;
-  padding:90px 70px;
+
+.hero-box{
+  background:rgba(255,255,255,.7);
+  backdrop-filter:blur(24px);
   border-radius:36px;
-  background:var(--glass);
-  backdrop-filter:blur(28px);
-  border:1px solid rgba(255,255,255,.14);
-  box-shadow:0 60px 160px rgba(0,0,0,.8);
-  text-align:center;
-  animation:rise 1.4s ease both;
+  padding:90px 70px;
+  box-shadow:0 40px 120px rgba(0,0,0,.15);
 }
+
 .hero h1{
-  font-size:clamp(3rem,5vw,4.6rem);
-  letter-spacing:3px;
-  margin:0 0 22px;
+  font-size:clamp(3rem,5vw,4.5rem);
+  margin-bottom:20px;
+  color:#0b0d10;
 }
+
 .hero p{
-  color:var(--soft);
+  font-size:1.05rem;
   line-height:1.8;
-  margin:0 0 48px;
+  color:#333;
+  max-width:700px;
 }
 
-/* ================== BUTTONS ================== */
-.actions{display:flex; gap:22px; justify-content:center; flex-wrap:wrap}
+.actions{
+  margin-top:40px;
+}
+
 .btn{
-  padding:16px 42px;
-  border-radius:50px;
-  text-decoration:none;
+  padding:16px 40px;
+  border-radius:40px;
+  background:linear-gradient(135deg,#6a5cff,#4fa3ff);
   color:#fff;
-  font-weight:500;
-  letter-spacing:1px;
-  background:
-    linear-gradient(135deg, rgba(198,167,94,.9), rgba(79,163,255,.9));
-  box-shadow:0 18px 40px rgba(0,0,0,.45);
-  transition:.35s ease;
+  text-decoration:none;
+  margin-right:16px;
+  box-shadow:0 20px 40px rgba(79,163,255,.4);
 }
-.btn.alt{
-  background:transparent;
-  border:1px solid rgba(255,255,255,.35);
-}
-.btn:hover{transform:translateY(-4px) scale(1.04)}
 
-/* ================== WHAT WE DO ================== */
-.cards{
+/* ================= SERVICES ================= */
+.services{
+  background:transparent;
+}
+
+.services-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:32px;
+  gap:30px;
 }
-.card{
-  background:var(--glass);
-  border-radius:26px;
-  padding:42px 32px;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow:0 30px 80px rgba(0,0,0,.7);
+
+.service{
+  padding:40px 30px;
+  border-radius:28px;
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(18px);
+  box-shadow:0 30px 80px rgba(0,0,0,.12);
   transition:.4s ease;
 }
-.card:hover{transform:translateY(-10px)}
-.card h3{margin:0 0 10px}
-.card p{margin:0; color:var(--soft)}
 
-/* ================== POWER STRIP ================== */
-.power{
-  background:
-    linear-gradient(180deg, transparent, rgba(198,167,94,.08), transparent);
-  text-align:center;
-}
-.power h2{font-size:clamp(2rem,4vw,3rem)}
-.power p{color:var(--soft); max-width:800px; margin:20px auto 0}
-
-/* ================== LEADERSHIP PREVIEW ================== */
-.lead{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:40px; flex-wrap:wrap;
-}
-.lead .copy{max-width:560px}
-.lead .frame{
-  width:360px; height:220px; border-radius:26px;
-  background:
-    radial-gradient(120px 80px at 80% 20%, rgba(79,163,255,.35), transparent 40%),
-    linear-gradient(135deg, #0E1320, #0B0D10);
-  box-shadow:0 30px 80px rgba(0,0,0,.8);
+.service:hover{
+  transform:translateY(-10px);
+  box-shadow:0 40px 100px rgba(79,163,255,.25);
 }
 
-/* ================== CTA ================== */
+.service h3{
+  margin-bottom:12px;
+}
+
+/* ================= CTA ================= */
 .cta{
   text-align:center;
-  background:
-    linear-gradient(135deg, rgba(198,167,94,.18), rgba(79,163,255,.18));
 }
 
-/* ================== WHATSAPP ================== */
 .whatsapp{
-  position:fixed; right:26px; bottom:26px;
-  width:60px; height:60px; border-radius:50%;
-  background:#25D366; color:#fff;
-  display:flex; align-items:center; justify-content:center;
-  font-size:26px; text-decoration:none;
-  box-shadow:0 20px 45px rgba(0,0,0,.6);
+  position:fixed;
+  right:26px;
+  bottom:26px;
+  width:60px;height:60px;
+  border-radius:50%;
+  background:#25D366;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  text-decoration:none;
+  box-shadow:0 20px 40px rgba(0,0,0,.4);
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<header>
+  <div class="nav">
+    <div class="logo">HIRENIX</div>
+    <div>
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="directors.html">Leadership</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
 <section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-card">
-    <h1>HIRENIX GROUP</h1>
-    <p>
-      A bold, future-driven business group operating across branding,
-      sustainable manufacturing, global trade, and strategic advisory —
-      built with clarity, depth, and leadership.
-    </p>
-    <div class="actions">
-      <a class="btn" href="#explore">Explore</a>
-      <a class="btn alt" href="#contact">Contact</a>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT WE DO -->
-<section id="explore">
   <div class="container">
-    <div class="cards reveal">
-      <div class="card"><h3>Branding & Identity</h3><p>Strategic brand systems that scale.</p></div>
-      <div class="card"><h3>Sustainable Manufacturing</h3><p>Eco-friendly packaging solutions.</p></div>
-      <div class="card"><h3>Global Trade</h3><p>Import–export & cross-border enablement.</p></div>
-      <div class="card"><h3>Strategic Advisory</h3><p>Business clarity for long-term growth.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- POWER -->
-<section class="power">
-  <div class="container reveal">
-    <h2>Built for Scale. Designed for Trust.</h2>
-    <p>
-      Hirenix blends strategy, execution, and governance to build resilient
-      businesses that endure.
-    </p>
-  </div>
-</section>
-
-<!-- LEADERSHIP PREVIEW -->
-<section>
-  <div class="container lead reveal">
-    <div class="copy">
-      <h2>Leadership</h2>
-      <p class="soft">
-        A focused board guiding multi-domain operations with discipline and vision.
+    <div class="hero-box">
+      <h1>Hirenix Group</h1>
+      <p>
+        A diversified business group operating across branding,
+        sustainable manufacturing, global trade and strategic advisory —
+        built with clarity, structure and long-term vision.
       </p>
-      <div class="actions" style="justify-content:flex-start">
-        <a class="btn" href="directors.html">Explore Leadership</a>
+      <div class="actions">
+        <a href="#services" class="btn">Explore Services</a>
+        <a href="#contact" class="btn">Get in Touch</a>
       </div>
     </div>
-    <div class="frame"></div>
   </div>
 </section>
 
-<!-- CTA -->
-<section id="contact" class="cta">
-  <div class="container reveal">
-    <h2>Work With Hirenix</h2>
-    <p class="soft">Pune, India · Operating Globally</p>
-    <div class="actions">
-      <a class="btn" href="mailto:info@hirenix.co">Email</a>
-      <a class="btn alt" href="https://wa.me/916006538459" target="_blank">WhatsApp</a>
+<section id="services" class="services">
+  <div class="container">
+    <div class="services-grid">
+      <div class="service">
+        <h3>Branding & Identity</h3>
+        <p>High-impact brand systems built for scale and recall.</p>
+      </div>
+      <div class="service">
+        <h3>Eco-Friendly Manufacturing</h3>
+        <p>Sustainable packaging solutions with global standards.</p>
+      </div>
+      <div class="service">
+        <h3>Import & Export</h3>
+        <p>End-to-end global trade support and compliance.</p>
+      </div>
+      <div class="service">
+        <h3>Strategic Advisory</h3>
+        <p>Clarity-driven consulting for long-term growth.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/916006538459" target="_blank">💬</a>
+<section id="contact" class="cta">
+  <div class="container">
+    <h2>Work With Hirenix</h2>
+    <p>Pune, India · Operating Globally</p>
+  </div>
+</section>
 
-<script>
-/* SCROLL REVEAL */
-const els=document.querySelectorAll('.reveal');
-const onScroll=()=>els.forEach(e=>{
-  if(e.getBoundingClientRect().top<window.innerHeight-120) e.classList.add('show');
-});
-window.addEventListener('scroll',onScroll); onScroll();
-</script>
+<a href="https://wa.me/916006538459" class="whatsapp">💬</a>
 
 </body>
 </html>
