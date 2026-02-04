@@ -10,7 +10,9 @@
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  background:radial-gradient(circle at top,#111,#000);
+  background:
+    radial-gradient(circle at top,#1a1a1a,#000),
+    linear-gradient(120deg,#0f2027,#203a43,#2c5364);
   color:#fff;
 }
 
@@ -23,48 +25,101 @@ body{
 
 h1{
   font-size:3rem;
-  margin-bottom:70px;
+  margin-bottom:80px;
   letter-spacing:2px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
+  gap:50px;
+  perspective:1200px;
 }
 
+/* CARD */
 .card{
-  background:rgba(255,255,255,0.08);
-  border-radius:26px;
+  position:relative;
+  height:380px;
+  border-radius:28px;
+  transform-style:preserve-3d;
+  transition:transform .8s ease;
+  cursor:pointer;
+}
+
+.card.is-flipped{
+  transform:rotateY(180deg);
+}
+
+.card-face{
+  position:absolute;
+  inset:0;
+  border-radius:28px;
   overflow:hidden;
-  box-shadow:0 30px 70px rgba(0,0,0,0.7);
-  transition:transform .4s ease, box-shadow .4s ease;
+  backface-visibility:hidden;
+  background:rgba(255,255,255,0.08);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.8),
+    inset 0 0 30px rgba(255,255,255,.05);
 }
 
-.card:hover{
-  transform:translateY(-12px) scale(1.03);
-  box-shadow:0 50px 120px rgba(0,0,0,0.9);
-}
-
-.card img{
+/* FRONT */
+.card-front img{
   width:100%;
-  height:300px;
+  height:280px;
   object-fit:cover;
-  background:#111;
 }
 
-.info{
-  padding:22px;
+.card-front .info{
+  padding:20px;
 }
 
 .name{
   font-size:1.1rem;
-  margin-bottom:6px;
 }
 
 .role{
   font-size:.8rem;
   color:#aaa;
+  margin-top:4px;
+}
+
+/* BACK */
+.card-back{
+  transform:rotateY(180deg);
+  padding:30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:16px;
+  background:
+    linear-gradient(145deg,#0f2027,#203a43);
+}
+
+.card-back p{
+  font-size:.85rem;
+  line-height:1.6;
+  color:#ddd;
+}
+
+.actions{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+}
+
+.actions a{
+  padding:10px 16px;
+  border-radius:20px;
+  font-size:.75rem;
+  text-decoration:none;
+  color:#fff;
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  box-shadow:0 10px 25px rgba(0,114,255,.4);
+  transition:transform .3s ease;
+}
+
+.actions a:hover{
+  transform:translateY(-3px);
 }
 </style>
 </head>
@@ -76,35 +131,75 @@ h1{
 
   <div class="grid">
 
-    <div class="card">
-      <img src="assets/directors/adnan.jpg.png" alt="Adnan">
-      <div class="info">
-        <div class="name">Adnan Maqbool</div>
-        <div class="role">Founder & Director</div>
+    <!-- Adnan -->
+    <div class="card" onclick="this.classList.toggle('is-flipped')">
+      <div class="card-face card-front">
+        <img src="assets/directors/adnan.jpg.png">
+        <div class="info">
+          <div class="name">Adnan Maqbool</div>
+          <div class="role">Founder & Director</div>
+        </div>
+      </div>
+      <div class="card-face card-back">
+        <p>Founder of Hirenix Group, leading vision, strategy and global expansion.</p>
+        <div class="actions">
+          <a href="#">LinkedIn</a>
+          <a href="#">Profile</a>
+        </div>
       </div>
     </div>
 
-    <div class="card">
-      <img src="assets/directors/sanket.jpg" alt="Sanket">
-      <div class="info">
-        <div class="name">Sanket Raut</div>
-        <div class="role">Director</div>
+    <!-- Sanket -->
+    <div class="card" onclick="this.classList.toggle('is-flipped')">
+      <div class="card-face card-front">
+        <img src="assets/directors/sanket.jpg">
+        <div class="info">
+          <div class="name">Sanket Raut</div>
+          <div class="role">Director</div>
+        </div>
+      </div>
+      <div class="card-face card-back">
+        <p>Oversees operations, governance and long-term strategic growth.</p>
+        <div class="actions">
+          <a href="#">LinkedIn</a>
+          <a href="#">Profile</a>
+        </div>
       </div>
     </div>
 
-    <div class="card">
-      <img src="assets/directors/gaurav.jpg.png" alt="Gaurav">
-      <div class="info">
-        <div class="name">Gaurav Joshi</div>
-        <div class="role">Director</div>
+    <!-- Gaurav -->
+    <div class="card" onclick="this.classList.toggle('is-flipped')">
+      <div class="card-face card-front">
+        <img src="assets/directors/gaurav.jpg.png">
+        <div class="info">
+          <div class="name">Gaurav Joshi</div>
+          <div class="role">Director</div>
+        </div>
+      </div>
+      <div class="card-face card-back">
+        <p>Drives innovation, partnerships and market expansion strategies.</p>
+        <div class="actions">
+          <a href="#">LinkedIn</a>
+          <a href="#">Profile</a>
+        </div>
       </div>
     </div>
 
-    <div class="card">
-      <img src="assets/directors/shiva.jpg" alt="Shiva">
-      <div class="info">
-        <div class="name">Shiva Pagari</div>
-        <div class="role">Director</div>
+    <!-- Shiva -->
+    <div class="card" onclick="this.classList.toggle('is-flipped')">
+      <div class="card-face card-front">
+        <img src="assets/directors/shiva.jpg">
+        <div class="info">
+          <div class="name">Shiva Pagari</div>
+          <div class="role">Director</div>
+        </div>
+      </div>
+      <div class="card-face card-back">
+        <p>Handles execution, compliance and operational excellence.</p>
+        <div class="actions">
+          <a href="#">LinkedIn</a>
+          <a href="#">Profile</a>
+        </div>
       </div>
     </div>
 
@@ -113,7 +208,3 @@ h1{
 
 </body>
 </html>
-
-
-
-
