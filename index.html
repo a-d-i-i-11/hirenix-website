@@ -14,11 +14,22 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background:
-    radial-gradient(circle at 15% 20%, rgba(0,120,255,0.18), transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(160,0,255,0.16), transparent 45%),
+    radial-gradient(circle at 20% 15%, rgba(0,140,255,0.18), transparent 40%),
+    radial-gradient(circle at 80% 85%, rgba(160,0,255,0.16), transparent 40%),
     #050505;
   color: #fff;
   overflow-x: hidden;
+}
+
+/* GLOBAL ANIMATION */
+.fade-in {
+  animation: fadeUp 1.4s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* HERO */
@@ -27,32 +38,31 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 20px;
+  padding: 70px 20px;
 }
 
 .hero-card {
   max-width: 900px;
-  padding: 70px 60px;
-  border-radius: 30px;
+  padding: 80px 60px;
+  border-radius: 32px;
   background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.15);
   backdrop-filter: blur(22px);
-  box-shadow: 0 60px 140px rgba(0,0,0,0.75);
+  box-shadow: 0 60px 150px rgba(0,0,0,0.8);
   text-align: center;
-  transform: perspective(1000px) translateZ(0);
 }
 
 .hero-card h1 {
-  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-size: clamp(2.8rem, 5vw, 4.3rem);
   letter-spacing: 3px;
-  margin-bottom: 18px;
+  margin-bottom: 22px;
 }
 
 .hero-card p {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #cfcfcf;
-  margin-bottom: 50px;
+  color: #d0d0d0;
+  margin-bottom: 55px;
 }
 
 /* BUTTONS */
@@ -64,8 +74,8 @@ body {
 }
 
 .btn {
-  padding: 14px 36px;
-  border-radius: 40px;
+  padding: 15px 38px;
+  border-radius: 50px;
   background: linear-gradient(135deg, rgba(0,140,255,0.35), rgba(140,0,255,0.35));
   border: 1px solid rgba(255,255,255,0.28);
   color: #fff;
@@ -75,8 +85,53 @@ body {
 }
 
 .btn:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0,140,255,0.45);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 25px 60px rgba(0,140,255,0.45);
+}
+
+/* DOMAINS SECTION */
+#domains {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+#domains h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+.domain-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 35px;
+}
+
+.domain {
+  padding: 40px 30px;
+  border-radius: 26px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  backdrop-filter: blur(18px);
+  transition: all 0.4s ease;
+}
+
+.domain:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 80px rgba(140,0,255,0.35);
+}
+
+/* CONTACT */
+#contact {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+#contact p {
+  color: #ccc;
+  margin-bottom: 30px;
 }
 
 /* WHATSAPP */
@@ -106,20 +161,44 @@ body {
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-card">
+  <div class="hero-card fade-in">
     <h1>HIRENIX GROUP</h1>
     <p>
-      A diversified business group operating across branding, sustainable
-      manufacturing, global trade, and strategic advisory — driven by
-      leadership, precision, and long-term vision.
+      A diversified business group shaping brands, building sustainable
+      manufacturing solutions, enabling global trade, and delivering
+      strategic advisory with long-term vision.
     </p>
 
     <div class="actions">
       <a href="directors.html" class="btn">Board of Directors</a>
-      <a href="#" class="btn">Our Domains</a>
-      <a href="#" class="btn">Contact</a>
+      <a href="#domains" class="btn">Our Domains</a>
+      <a href="#contact" class="btn">Contact</a>
     </div>
+  </div>
+</section>
+
+<!-- DOMAINS -->
+<section id="domains">
+  <h2 class="fade-in">Our Domains</h2>
+
+  <div class="domain-grid fade-in">
+    <div class="domain">Branding & Identity Systems</div>
+    <div class="domain">Eco-Friendly Packaging Manufacturing</div>
+    <div class="domain">Import–Export & Global Trade Support</div>
+    <div class="domain">Business Consulting & Strategic Advisory</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="fade-in">Contact Hirenix</h2>
+  <p class="fade-in">Pune, India · Working Globally</p>
+
+  <div class="actions fade-in">
+    <a class="btn" href="mailto:info@hirenix.co">Email Us</a>
+    <a class="btn" href="https://wa.me/916006538459" target="_blank">WhatsApp</a>
   </div>
 </section>
 
