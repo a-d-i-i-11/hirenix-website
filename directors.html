@@ -7,6 +7,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
+  /* Premium hover enhancement */
+.card{
+  position: relative;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:26px;
+  background:linear-gradient(
+    135deg,
+    rgba(79,163,255,0.35),
+    rgba(198,167,94,0.35)
+  );
+  opacity:0;
+  transition:opacity .4s ease;
+  pointer-events:none;
+}
+
+.card:hover::after{
+  opacity:1;
+}
+
+.card:hover{
+  transform:translateY(-14px) scale(1.04);
+}
+
 :root{
   --glass: rgba(255,255,255,0.08);
   --glow: linear-gradient(135deg,#00c6ff,#7f00ff);
@@ -211,3 +239,4 @@ h1{
 
 </body>
 </html>
+
