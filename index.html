@@ -10,26 +10,41 @@
 <style>
 * { box-sizing: border-box; }
 
+/* 🌈 ANIMATED BACKGROUND */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background:
-    radial-gradient(circle at 20% 15%, rgba(0,140,255,0.18), transparent 40%),
-    radial-gradient(circle at 80% 85%, rgba(160,0,255,0.16), transparent 40%),
-    #050505;
   color: #fff;
+  min-height: 100vh;
+  background: linear-gradient(
+    -45deg,
+    #0f0c29,
+    #302b63,
+    #24243e,
+    #0b8793,
+    #360033
+  );
+  background-size: 400% 400%;
+  animation: gradientFlow 18s ease infinite;
   overflow-x: hidden;
 }
 
-/* GLOBAL ANIMATION */
-.fade-in {
-  animation: fadeUp 1.4s ease forwards;
-  opacity: 0;
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ✨ FADE + FLOAT IN */
+@keyframes fadeFloat {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* HERO */
@@ -38,109 +53,68 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 70px 20px;
+  padding: 60px 20px;
 }
 
 .hero-card {
   max-width: 900px;
   padding: 80px 60px;
-  border-radius: 32px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.15);
-  backdrop-filter: blur(22px);
-  box-shadow: 0 60px 150px rgba(0,0,0,0.8);
+  border-radius: 34px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(28px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.6),
+    inset 0 0 60px rgba(255,255,255,0.08);
   text-align: center;
+  animation: fadeFloat 1.6s ease forwards;
 }
 
 .hero-card h1 {
-  font-size: clamp(2.8rem, 5vw, 4.3rem);
-  letter-spacing: 3px;
+  font-size: clamp(2.8rem, 5vw, 4.4rem);
+  letter-spacing: 4px;
   margin-bottom: 22px;
 }
 
 .hero-card p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #d0d0d0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #eaeaea;
   margin-bottom: 55px;
 }
 
 /* BUTTONS */
 .actions {
   display: flex;
-  gap: 22px;
+  gap: 24px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .btn {
-  padding: 15px 38px;
+  padding: 16px 40px;
   border-radius: 50px;
-  background: linear-gradient(135deg, rgba(0,140,255,0.35), rgba(140,0,255,0.35));
-  border: 1px solid rgba(255,255,255,0.28);
+  background: linear-gradient(135deg, #ff6fd8, #6a5cff);
   color: #fff;
   text-decoration: none;
   letter-spacing: 1px;
+  font-weight: 500;
   transition: all 0.35s ease;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.4);
 }
 
 .btn:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 25px 60px rgba(0,140,255,0.45);
-}
-
-/* DOMAINS SECTION */
-#domains {
-  padding: 120px 20px;
-  text-align: center;
-}
-
-#domains h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 60px;
-  letter-spacing: 2px;
-}
-
-.domain-grid {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 35px;
-}
-
-.domain {
-  padding: 40px 30px;
-  border-radius: 26px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(18px);
-  transition: all 0.4s ease;
-}
-
-.domain:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 80px rgba(140,0,255,0.35);
-}
-
-/* CONTACT */
-#contact {
-  padding: 120px 20px;
-  text-align: center;
-}
-
-#contact p {
-  color: #ccc;
-  margin-bottom: 30px;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
 }
 
 /* WHATSAPP */
 .whatsapp {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
-  width: 58px;
-  height: 58px;
+  right: 26px;
+  bottom: 26px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background: #25D366;
   display: flex;
@@ -161,14 +135,13 @@ body {
 
 <body>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-card fade-in">
+  <div class="hero-card">
     <h1>HIRENIX GROUP</h1>
     <p>
-      A diversified business group shaping brands, building sustainable
-      manufacturing solutions, enabling global trade, and delivering
-      strategic advisory with long-term vision.
+      A future-driven business group operating across branding,
+      sustainable manufacturing, global trade, and strategic advisory —
+      built with vision, depth, and leadership.
     </p>
 
     <div class="actions">
@@ -176,29 +149,6 @@ body {
       <a href="#domains" class="btn">Our Domains</a>
       <a href="#contact" class="btn">Contact</a>
     </div>
-  </div>
-</section>
-
-<!-- DOMAINS -->
-<section id="domains">
-  <h2 class="fade-in">Our Domains</h2>
-
-  <div class="domain-grid fade-in">
-    <div class="domain">Branding & Identity Systems</div>
-    <div class="domain">Eco-Friendly Packaging Manufacturing</div>
-    <div class="domain">Import–Export & Global Trade Support</div>
-    <div class="domain">Business Consulting & Strategic Advisory</div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2 class="fade-in">Contact Hirenix</h2>
-  <p class="fade-in">Pune, India · Working Globally</p>
-
-  <div class="actions fade-in">
-    <a class="btn" href="mailto:info@hirenix.co">Email Us</a>
-    <a class="btn" href="https://wa.me/916006538459" target="_blank">WhatsApp</a>
   </div>
 </section>
 
