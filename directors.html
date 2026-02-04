@@ -10,104 +10,61 @@
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  background:#050505;
+  background:radial-gradient(circle at top,#111,#000);
   color:#fff;
 }
 
 .container{
+  max-width:1200px;
+  margin:auto;
   padding:100px 20px;
   text-align:center;
 }
 
 h1{
-  font-size:clamp(2.2rem,4vw,3.2rem);
-  margin-bottom:80px;
+  font-size:3rem;
+  margin-bottom:70px;
   letter-spacing:2px;
 }
 
-/* GRID */
 .grid{
-  max-width:1200px;
-  margin:auto;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:40px;
-  perspective:1200px;
 }
 
-/* FLIP CARD */
-.flip-card{
-  width:100%;
-  height:380px;
-  perspective:1200px;
-  cursor:pointer;
-}
-
-.flip-inner{
-  width:100%;
-  height:100%;
-  position:relative;
-  transition:transform 0.8s ease;
-  transform-style:preserve-3d;
-}
-
-.flip-card.active .flip-inner{
-  transform:rotateY(180deg);
-}
-
-/* FRONT & BACK */
-.flip-front,
-.flip-back{
-  position:absolute;
-  width:100%;
-  height:100%;
-  backface-visibility:hidden;
-  border-radius:28px;
-  overflow:hidden;
+.card{
   background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(16px);
-  box-shadow:0 30px 90px rgba(0,0,0,0.7);
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 30px 70px rgba(0,0,0,0.7);
+  transition:transform .4s ease, box-shadow .4s ease;
 }
 
-/* FRONT */
-.flip-front img{
+.card:hover{
+  transform:translateY(-12px) scale(1.03);
+  box-shadow:0 50px 120px rgba(0,0,0,0.9);
+}
+
+.card img{
   width:100%;
-  height:260px;
+  height:300px;
   object-fit:cover;
-}
-.flip-front .name{
-  padding:18px;
+  background:#111;
 }
 
-/* BACK */
-.flip-back{
-  transform:rotateY(180deg);
-  padding:30px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:18px;
+.info{
+  padding:22px;
 }
 
-.flip-back p{
-  font-size:0.9rem;
-  color:#ddd;
-  line-height:1.6;
+.name{
+  font-size:1.1rem;
+  margin-bottom:6px;
 }
 
-.actions{
-  display:flex;
-  gap:14px;
-  justify-content:center;
-}
-
-.actions a{
-  padding:10px 20px;
-  border-radius:30px;
-  background:linear-gradient(135deg,#ff6fd8,#6a5cff);
-  color:#fff;
-  text-decoration:none;
-  font-size:0.85rem;
+.role{
+  font-size:.8rem;
+  color:#aaa;
 }
 </style>
 </head>
@@ -119,43 +76,40 @@ h1{
 
   <div class="grid">
 
-    <!-- ADnan -->
-    <div class="flip-card">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <img src="assets/directors/adnan.jpg">
-          <div class="name">Adnan Maqbool<br><small>Founder & Director</small></div>
-        </div>
-        <div class="flip-back">
-          <p>Founder of Hirenix Group, leading multi-domain operations with a focus on branding, global trade and strategic growth.</p>
-          <div class="actions">
-            <a href="#">LinkedIn</a>
-            <a href="mailto:info@hirenix.co">Email</a>
-          </div>
-        </div>
+    <div class="card">
+      <img src="assets/directors/adnan.jpg" alt="Adnan">
+      <div class="info">
+        <div class="name">Adnan Maqbool</div>
+        <div class="role">Founder & Director</div>
       </div>
     </div>
 
-    <!-- Sanket -->
-    <div class="flip-card">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <img src="assets/directors/sanket.jpg">
-          <div class="name">Sanket Raut<br><small>Director</small></div>
-        </div>
-        <div class="flip-back">
-          <p>Director at Hirenix Group, overseeing operational strategy, partnerships and execution across business verticals.</p>
-          <div class="actions">
-            <a href="#">LinkedIn</a>
-            <a href="mailto:info@hirenix.co">Email</a>
-          </div>
-        </div>
+    <div class="card">
+      <img src="assets/directors/sanket.jpg" alt="Sanket">
+      <div class="info">
+        <div class="name">Sanket Raut</div>
+        <div class="role">Director</div>
       </div>
     </div>
 
-    <!-- Gaurav -->
-    <div class="flip-card">
-      <div class="flip-inner">
-        <div class="flip-front">
-          <img src="assets/directors/gaurav.jpg">
-          <div class="name">Gaurav Joshi<br><small>Director</small
+    <div class="card">
+      <img src="assets/directors/gaurav.jpg" alt="Gaurav">
+      <div class="info">
+        <div class="name">Gaurav Joshi</div>
+        <div class="role">Director</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="assets/directors/shiva.jpg" alt="Shiva">
+      <div class="info">
+        <div class="name">Shiva Pagari</div>
+        <div class="role">Director</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
