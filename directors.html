@@ -7,119 +7,125 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --glass: rgba(255,255,255,0.08);
+  --glow: linear-gradient(135deg,#00c6ff,#7f00ff);
+}
+
 body{
   margin:0;
   font-family:'Inter',sans-serif;
   background:
-    radial-gradient(circle at top,#1a1a1a,#000),
+    radial-gradient(circle at top,#111,#000),
     linear-gradient(120deg,#0f2027,#203a43,#2c5364);
   color:#fff;
+  overflow-x:hidden;
 }
 
 .container{
-  max-width:1200px;
+  max-width:1300px;
   margin:auto;
-  padding:100px 20px;
+  padding:120px 20px;
   text-align:center;
 }
 
 h1{
   font-size:3rem;
-  margin-bottom:80px;
+  margin-bottom:90px;
   letter-spacing:2px;
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:50px;
-  perspective:1200px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:60px;
+  perspective:1400px;
 }
 
-/* CARD */
+/* CARD CORE */
 .card{
   position:relative;
-  height:380px;
-  border-radius:28px;
+  height:420px;
   transform-style:preserve-3d;
-  transition:transform .8s ease;
+  transition:transform .9s cubic-bezier(.2,.8,.2,1);
   cursor:pointer;
 }
 
-.card.is-flipped{
+/* FLIP */
+.card.flipped{
   transform:rotateY(180deg);
 }
 
-.card-face{
+/* FACE */
+.face{
   position:absolute;
   inset:0;
   border-radius:28px;
-  overflow:hidden;
   backface-visibility:hidden;
-  background:rgba(255,255,255,0.08);
+  background:var(--glass);
   box-shadow:
-    0 30px 80px rgba(0,0,0,.8),
+    0 40px 120px rgba(0,0,0,.9),
     inset 0 0 30px rgba(255,255,255,.05);
+  overflow:hidden;
 }
 
 /* FRONT */
-.card-front img{
+.front img{
   width:100%;
-  height:280px;
+  height:300px;
   object-fit:cover;
+  transform:translateZ(40px);
 }
 
-.card-front .info{
-  padding:20px;
+.front .info{
+  padding:22px;
 }
 
-.name{
-  font-size:1.1rem;
-}
-
-.role{
-  font-size:.8rem;
-  color:#aaa;
-  margin-top:4px;
-}
+.name{font-size:1.1rem;}
+.role{font-size:.8rem;color:#aaa;margin-top:6px;}
 
 /* BACK */
-.card-back{
+.back{
   transform:rotateY(180deg);
-  padding:30px;
+  padding:35px;
   display:flex;
   flex-direction:column;
   justify-content:center;
-  gap:16px;
-  background:
-    linear-gradient(145deg,#0f2027,#203a43);
+  gap:22px;
+  background:linear-gradient(145deg,#0f2027,#1c1c1c);
 }
 
-.card-back p{
+.back p{
   font-size:.85rem;
-  line-height:1.6;
   color:#ddd;
+  line-height:1.6;
 }
 
+/* BUTTONS */
 .actions{
   display:flex;
   justify-content:center;
-  gap:12px;
+  gap:14px;
 }
 
 .actions a{
-  padding:10px 16px;
-  border-radius:20px;
+  padding:12px 20px;
+  border-radius:22px;
   font-size:.75rem;
   text-decoration:none;
   color:#fff;
-  background:linear-gradient(135deg,#00c6ff,#0072ff);
-  box-shadow:0 10px 25px rgba(0,114,255,.4);
+  background:var(--glow);
+  box-shadow:0 12px 30px rgba(127,0,255,.45);
   transition:transform .3s ease;
 }
 
 .actions a:hover{
-  transform:translateY(-3px);
+  transform:translateY(-4px) scale(1.05);
+}
+
+/* HOVER PHYSICS */
+.card:hover{
+  box-shadow:0 60px 140px rgba(0,0,0,.95);
 }
 </style>
 </head>
@@ -131,74 +137,71 @@ h1{
 
   <div class="grid">
 
-    <!-- Adnan -->
-    <div class="card" onclick="this.classList.toggle('is-flipped')">
-      <div class="card-face card-front">
+    <!-- CARD TEMPLATE -->
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="face front">
         <img src="assets/directors/adnan.jpg.png">
         <div class="info">
           <div class="name">Adnan Maqbool</div>
           <div class="role">Founder & Director</div>
         </div>
       </div>
-      <div class="card-face card-back">
-        <p>Founder of Hirenix Group, leading vision, strategy and global expansion.</p>
+      <div class="face back">
+        <p>Founder of Hirenix Group. Visionary leader driving innovation, scale and global strategy.</p>
         <div class="actions">
-          <a href="#">LinkedIn</a>
-          <a href="#">Profile</a>
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#">View Profile</a>
         </div>
       </div>
     </div>
 
-    <!-- Sanket -->
-    <div class="card" onclick="this.classList.toggle('is-flipped')">
-      <div class="card-face card-front">
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="face front">
         <img src="assets/directors/sanket.jpg">
         <div class="info">
           <div class="name">Sanket Raut</div>
           <div class="role">Director</div>
         </div>
       </div>
-      <div class="card-face card-back">
-        <p>Oversees operations, governance and long-term strategic growth.</p>
+      <div class="face back">
+        <p>Oversees governance, execution and long-term operational excellence.</p>
         <div class="actions">
-          <a href="#">LinkedIn</a>
-          <a href="#">Profile</a>
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#">View Profile</a>
         </div>
       </div>
     </div>
 
-    <!-- Gaurav -->
-    <div class="card" onclick="this.classList.toggle('is-flipped')">
-      <div class="card-face card-front">
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="face front">
         <img src="assets/directors/gaurav.jpg.png">
         <div class="info">
           <div class="name">Gaurav Joshi</div>
           <div class="role">Director</div>
         </div>
       </div>
-      <div class="card-face card-back">
-        <p>Drives innovation, partnerships and market expansion strategies.</p>
+      <div class="face back">
+        <p>Leads partnerships, innovation strategy and market expansion.</p>
         <div class="actions">
-          <a href="#">LinkedIn</a>
-          <a href="#">Profile</a>
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#">View Profile</a>
         </div>
       </div>
     </div>
 
-    <!-- Shiva -->
-    <div class="card" onclick="this.classList.toggle('is-flipped')">
-      <div class="card-face card-front">
+    <div class="card" onclick="this.classList.toggle('flipped')">
+      <div class="face front">
         <img src="assets/directors/shiva.jpg">
         <div class="info">
           <div class="name">Shiva Pagari</div>
           <div class="role">Director</div>
         </div>
       </div>
-      <div class="card-face card-back">
-        <p>Handles execution, compliance and operational excellence.</p>
+      <div class="face back">
+        <p>Drives execution, compliance and delivery excellence.</p>
         <div class="actions">
-          <a href="#">LinkedIn</a>
-          <a href="#">Profile</a>
+          <a href="#" target="_blank">LinkedIn</a>
+          <a href="#">View Profile</a>
         </div>
       </div>
     </div>
