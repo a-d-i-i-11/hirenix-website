@@ -1,0 +1,128 @@
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Board of Directors | Hirenix Group</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #141414, #000);
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 40px;
+}
+
+.card {
+  perspective: 1200px;
+}
+
+.card-inner {
+  background: rgba(255,255,255,0.06);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: all 0.6s ease;
+  backdrop-filter: blur(14px);
+}
+
+.card:hover .card-inner {
+  transform: translateY(-12px) scale(1.06);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+}
+
+.card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.name {
+  padding: 18px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.role {
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-top: 6px;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Board of Directors</h1>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="card-inner">
+        <img src="assets/directors/adnan.png" alt="Adnan Maqbool">
+        <div class="name">
+          Adnan Maqbool
+          <div class="role">Founder & Director</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <img src="assets/directors/sanket.png" alt="Sanket Raut">
+        <div class="name">
+          Sanket Raut
+          <div class="role">Director</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <img src="assets/directors/gaurav.png" alt="Gaurav Joshi">
+        <div class="name">
+          Gaurav Joshi
+          <div class="role">Director</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-inner">
+        <img src="assets/directors/shiva.png" alt="Shiva Pagari">
+        <div class="name">
+          Shiva Pagari
+          <div class="role">Director</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
+
