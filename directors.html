@@ -18,7 +18,7 @@ body {
 .container {
   max-width: 1200px;
   margin: auto;
-  padding: 80px 20px;
+  padding: 100px 20px;
   text-align: center;
 }
 
@@ -30,41 +30,37 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 40px;
 }
 
-.card {
+.card-inner {
   background: rgba(255,255,255,0.05);
   border-radius: 22px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition: 0.4s;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+.card-inner:hover {
+  transform: translateY(-10px);
 }
 
 .card img {
   width: 100%;
-  height: 360px;
+  height: 320px;
   object-fit: cover;
-  display: block;
 }
 
 .name {
-  padding: 18px 12px 6px;
+  padding: 16px;
   font-size: 1rem;
-  letter-spacing: 1px;
 }
 
 .role {
-  padding-bottom: 16px;
   font-size: 0.75rem;
   color: #aaa;
-  letter-spacing: 1px;
+  margin-top: 6px;
 }
 </style>
 </head>
@@ -76,28 +72,24 @@ h1 {
 
   <div class="grid">
 
-    <div class="card">
-      <img src="assets/directors/adnan.jpg" alt="Adnan Maqbool">
-      <div class="name">Adnan Maqbool</div>
-      <div class="role">Founder & Director</div>
+    <div class="card-inner">
+      <img src="assets/directors/adnan.jpg">
+      <div class="name">Adnan Maqbool<div class="role">Founder & Director</div></div>
     </div>
 
-    <div class="card">
-      <img src="assets/directors/sanket.jpg" alt="Sanket Raut">
-      <div class="name">Sanket Raut</div>
-      <div class="role">Director</div>
+    <div class="card-inner">
+      <img src="assets/directors/sanket.jpg">
+      <div class="name">Sanket Raut<div class="role">Director</div></div>
     </div>
 
-    <div class="card">
-      <img src="assets/directors/gaurav.jpg" alt="Gaurav Joshi">
-      <div class="name">Gaurav Joshi</div>
-      <div class="role">Director</div>
+    <div class="card-inner">
+      <img src="assets/directors/gaurav.jpg">
+      <div class="name">Gaurav Joshi<div class="role">Director</div></div>
     </div>
 
-    <div class="card">
-      <img src="assets/directors/shiva.jpg" alt="Shiva Pagari">
-      <div class="name">Shiva Pagari</div>
-      <div class="role">Director</div>
+    <div class="card-inner">
+      <img src="assets/directors/shiva.jpg">
+      <div class="name">Shiva Pagari<div class="role">Director</div></div>
     </div>
 
   </div>
