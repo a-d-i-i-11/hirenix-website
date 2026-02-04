@@ -39,11 +39,12 @@ h1 {
   border-radius: 22px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
-  transition: 0.4s;
+  transition: 0.4s ease;
 }
 
 .card-inner:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.6);
 }
 
 .card img {
@@ -53,7 +54,7 @@ h1 {
 }
 
 .name {
-  padding: 16px;
+  padding: 18px;
   font-size: 1rem;
 }
 
@@ -72,24 +73,32 @@ h1 {
 
   <div class="grid">
 
-    <div class="card-inner">
-      <img src="assets/directors/adnan.jpg">
-      <div class="name">Adnan Maqbool<div class="role">Founder & Director</div></div>
+    <div class="card">
+      <div class="card-inner">
+        <img src="assets/directors/adnan.jpg" alt="Adnan Maqbool">
+        <div class="name">Adnan Maqbool<div class="role">Founder & Director</div></div>
+      </div>
     </div>
 
-    <div class="card-inner">
-      <img src="assets/directors/sanket.jpg">
-      <div class="name">Sanket Raut<div class="role">Director</div></div>
+    <div class="card">
+      <div class="card-inner">
+        <img src="assets/directors/sanket.jpg" alt="Sanket Raut">
+        <div class="name">Sanket Raut<div class="role">Director</div></div>
+      </div>
     </div>
 
-    <div class="card-inner">
-      <img src="assets/directors/gaurav.jpg">
-      <div class="name">Gaurav Joshi<div class="role">Director</div></div>
+    <div class="card">
+      <div class="card-inner">
+        <img src="assets/directors/gaurav.jpg" alt="Gaurav Joshi">
+        <div class="name">Gaurav Joshi<div class="role">Director</div></div>
+      </div>
     </div>
 
-    <div class="card-inner">
-      <img src="assets/directors/shiva.jpg">
-      <div class="name">Shiva Pagari<div class="role">Director</div></div>
+    <div class="card">
+      <div class="card-inner">
+        <img src="assets/directors/shiva.jpg" alt="Shiva Pagari">
+        <div class="name">Shiva Pagari<div class="role">Director</div></div>
+      </div>
     </div>
 
   </div>
