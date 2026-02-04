@@ -2,30 +2,74 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Hirenix Group</title>
+<title>Hirenix Group Pvt Ltd</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #000;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #141414, #000);
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
-a {
-  color: #0ff;
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.05rem;
+  color: #bbb;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.cta {
+  display: inline-block;
+  padding: 14px 36px;
+  border-radius: 40px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
   text-decoration: none;
-  font-size: 20px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-2px);
 }
 </style>
 </head>
 
 <body>
-  <a href="directors.html">View Board of Directors →</a>
+
+<section class="hero">
+  <div>
+    <h1>HIRENIX GROUP PVT LTD</h1>
+    <p>
+      Where vision scales into global impact.  
+      Hirenix Group operates at the intersection of strategy, innovation,
+      and execution across multiple business domains.
+    </p>
+    <a class="cta" href="directors.html">Meet the Directors</a>
+  </div>
+</section>
+
 </body>
 </html>
