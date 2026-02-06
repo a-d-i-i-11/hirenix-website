@@ -7,37 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
-  /* Premium hover enhancement */
-.card{
-  position: relative;
-}
-
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:26px;
-  background:linear-gradient(
-    135deg,
-    rgba(79,163,255,0.35),
-    rgba(198,167,94,0.35)
-  );
-  opacity:0;
-  transition:opacity .4s ease;
-  pointer-events:none;
-}
-
-.card:hover::after{
-  opacity:1;
-}
-
-.card:hover{
-  transform:translateY(-14px) scale(1.04);
-}
-
 :root{
-  --glass: rgba(255,255,255,0.08);
-  --glow: linear-gradient(135deg,#00c6ff,#7f00ff);
+  --glass: rgba(255,255,255,0.09);
+  --gold: linear-gradient(135deg,#cfa14a,#ffda8a);
+  --neon: linear-gradient(135deg,#00c6ff,#7f00ff);
 }
 
 body{
@@ -51,7 +24,7 @@ body{
 }
 
 .container{
-  max-width:1300px;
+  max-width:1350px;
   margin:auto;
   padding:120px 20px;
   text-align:center;
@@ -59,41 +32,58 @@ body{
 
 h1{
   font-size:3rem;
-  margin-bottom:90px;
+  margin-bottom:100px;
   letter-spacing:2px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:60px;
-  perspective:1400px;
+  gap:70px;
+  perspective:1600px;
 }
 
-/* CARD CORE */
+/* CARD */
 .card{
   position:relative;
-  height:420px;
+  height:430px;
   transform-style:preserve-3d;
-  transition:transform .9s cubic-bezier(.2,.8,.2,1);
+  transition:transform 1s cubic-bezier(.2,.8,.2,1);
   cursor:pointer;
 }
 
-/* FLIP */
+.card:hover{
+  transform:translateY(-18px) rotateX(6deg) rotateY(-6deg);
+}
+
 .card.flipped{
   transform:rotateY(180deg);
 }
+
+/* GLOW */
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:30px;
+  background:linear-gradient(135deg,rgba(255,215,128,.35),rgba(0,198,255,.35));
+  opacity:0;
+  transition:opacity .4s ease;
+  pointer-events:none;
+}
+
+.card:hover::after{opacity:1;}
 
 /* FACE */
 .face{
   position:absolute;
   inset:0;
-  border-radius:28px;
+  border-radius:30px;
   backface-visibility:hidden;
   background:var(--glass);
   box-shadow:
-    0 40px 120px rgba(0,0,0,.9),
-    inset 0 0 30px rgba(255,255,255,.05);
+    0 50px 140px rgba(0,0,0,.95),
+    inset 0 0 40px rgba(255,255,255,.06);
   overflow:hidden;
 }
 
@@ -102,31 +92,30 @@ h1{
   width:100%;
   height:300px;
   object-fit:cover;
-  transform:translateZ(40px);
 }
 
-.front .info{
-  padding:22px;
+.info{
+  padding:24px;
 }
 
-.name{font-size:1.1rem;}
+.name{font-size:1.15rem;}
 .role{font-size:.8rem;color:#aaa;margin-top:6px;}
 
 /* BACK */
 .back{
   transform:rotateY(180deg);
-  padding:35px;
+  padding:38px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   gap:22px;
-  background:linear-gradient(145deg,#0f2027,#1c1c1c);
+  background:linear-gradient(145deg,#0f2027,#111);
 }
 
 .back p{
   font-size:.85rem;
+  line-height:1.7;
   color:#ddd;
-  line-height:1.6;
 }
 
 /* BUTTONS */
@@ -137,23 +126,18 @@ h1{
 }
 
 .actions a{
-  padding:12px 20px;
-  border-radius:22px;
+  padding:12px 22px;
+  border-radius:26px;
   font-size:.75rem;
   text-decoration:none;
-  color:#fff;
-  background:var(--glow);
-  box-shadow:0 12px 30px rgba(127,0,255,.45);
+  color:#000;
+  background:var(--gold);
+  box-shadow:0 12px 35px rgba(255,200,100,.5);
   transition:transform .3s ease;
 }
 
 .actions a:hover{
-  transform:translateY(-4px) scale(1.05);
-}
-
-/* HOVER PHYSICS */
-.card:hover{
-  box-shadow:0 60px 140px rgba(0,0,0,.95);
+  transform:translateY(-4px) scale(1.06);
 }
 </style>
 </head>
@@ -165,7 +149,6 @@ h1{
 
   <div class="grid">
 
-    <!-- CARD TEMPLATE -->
     <div class="card" onclick="this.classList.toggle('flipped')">
       <div class="face front">
         <img src="assets/directors/adnan.jpg.png">
@@ -175,10 +158,10 @@ h1{
         </div>
       </div>
       <div class="face back">
-        <p>Founder of Hirenix Group. Visionary leader driving innovation, scale and global strategy.</p>
+        <p>Founder of Hirenix Group. Driving innovation, strategy and long-term global growth.</p>
         <div class="actions">
-          <a href="#" target="_blank">LinkedIn</a>
-          <a href="#">View Profile</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Profile</a>
         </div>
       </div>
     </div>
@@ -192,10 +175,10 @@ h1{
         </div>
       </div>
       <div class="face back">
-        <p>Oversees governance, execution and long-term operational excellence.</p>
+        <p>Oversees governance, execution and operational excellence.</p>
         <div class="actions">
-          <a href="#" target="_blank">LinkedIn</a>
-          <a href="#">View Profile</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Profile</a>
         </div>
       </div>
     </div>
@@ -209,10 +192,10 @@ h1{
         </div>
       </div>
       <div class="face back">
-        <p>Leads partnerships, innovation strategy and market expansion.</p>
+        <p>Leads partnerships, innovation strategy and expansion initiatives.</p>
         <div class="actions">
-          <a href="#" target="_blank">LinkedIn</a>
-          <a href="#">View Profile</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Profile</a>
         </div>
       </div>
     </div>
@@ -221,15 +204,15 @@ h1{
       <div class="face front">
         <img src="assets/directors/Shiva ji.png">
         <div class="info">
-          <div class="name">shivaji Pagire</div>
+          <div class="name">Shivaji Pagire</div>
           <div class="role">Director</div>
         </div>
       </div>
       <div class="face back">
         <p>Drives execution, compliance and delivery excellence.</p>
         <div class="actions">
-          <a href="#" target="_blank">LinkedIn</a>
-          <a href="#">View Profile</a>
+          <a href="#">LinkedIn</a>
+          <a href="#">Profile</a>
         </div>
       </div>
     </div>
@@ -239,6 +222,3 @@ h1{
 
 </body>
 </html>
-
-
-
