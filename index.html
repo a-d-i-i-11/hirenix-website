@@ -2,231 +2,217 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Hirenix Group Pvt Ltd</title>
+<title>Hirenix Group | Where Vision Scales</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
+:root{
+  --accent1:#00c6ff;
+  --accent2:#ff7a18;
+  --accent3:#7f00ff;
+}
 
-/* 🌊 AURORA / WATER BACKGROUND */
+*{box-sizing:border-box;}
+
 body{
+  margin:0;
   font-family:'Inter',sans-serif;
-  color:#0b0d10;
+  color:#fff;
+  background:#000;
+  overflow-x:hidden;
+}
+
+/* ===== CINEMATIC BACKGROUND ===== */
+.bg{
+  position:fixed;
+  inset:0;
   background:
-    radial-gradient(circle at 10% 20%, #e8f3ff, transparent 40%),
-    radial-gradient(circle at 80% 10%, #f3e8ff, transparent 40%),
-    radial-gradient(circle at 50% 90%, #e8fff5, transparent 45%),
-    linear-gradient(120deg,#f9fbff,#eef2ff,#fdfdfd);
-  background-size:200% 200%;
-  animation:bgFlow 18s ease infinite;
+    radial-gradient(circle at 20% 30%, rgba(0,198,255,.25), transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255,122,24,.25), transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(127,0,255,.18), transparent 50%),
+    linear-gradient(120deg,#050505,#000,#050505);
+  animation:flow 14s ease-in-out infinite alternate;
+  z-index:-2;
 }
 
-@keyframes bgFlow{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+@keyframes flow{
+  0%{filter:hue-rotate(0deg);}
+  100%{filter:hue-rotate(40deg);}
 }
 
-/* ================= HEADER ================= */
+.noise{
+  position:fixed;
+  inset:0;
+  background:url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity:.07;
+  z-index:-1;
+}
+
+/* ===== HEADER ===== */
 header{
   position:fixed;
-  top:0;left:0;right:0;
-  z-index:999;
-  background:rgba(255,255,255,.65);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(0,0,0,.06);
-}
-
-.nav{
-  max-width:1200px;
-  margin:auto;
-  padding:16px 20px;
+  top:0;
+  width:100%;
+  padding:20px 40px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(10px);
+  z-index:10;
 }
 
-.logo{
+header .logo{
   font-weight:700;
-  letter-spacing:2px;
+  letter-spacing:1px;
 }
 
-.nav a{
+header nav a{
+  color:#fff;
   text-decoration:none;
-  color:#111;
-  margin-left:24px;
-  font-size:.9rem;
+  margin-left:30px;
+  font-size:.85rem;
+  opacity:.85;
 }
 
-/* ================= SECTIONS ================= */
-section{
-  padding:140px 20px 120px;
-}
+header nav a:hover{opacity:1;}
 
-.container{
-  max-width:1200px;
-  margin:auto;
-}
-
-/* ================= HERO ================= */
+/* ===== HERO ===== */
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
-}
-
-.hero-box{
-  background:rgba(255,255,255,.7);
-  backdrop-filter:blur(24px);
-  border-radius:36px;
-  padding:90px 70px;
-  box-shadow:0 40px 120px rgba(0,0,0,.15);
+  justify-content:center;
+  text-align:center;
+  padding:120px 20px;
 }
 
 .hero h1{
-  font-size:clamp(3rem,5vw,4.5rem);
+  font-size:clamp(2.8rem,6vw,4.5rem);
   margin-bottom:20px;
-  color:#0b0d10;
+  letter-spacing:2px;
 }
 
 .hero p{
+  max-width:720px;
+  margin:auto;
   font-size:1.05rem;
-  line-height:1.8;
-  color:#333;
-  max-width:700px;
+  color:#ccc;
 }
 
-.actions{
+.hero .cta{
   margin-top:40px;
-}
-
-.btn{
-  padding:16px 40px;
+  display:inline-block;
+  padding:16px 36px;
   border-radius:40px;
-  background:linear-gradient(135deg,#6a5cff,#4fa3ff);
-  color:#fff;
+  background:linear-gradient(135deg,var(--accent1),var(--accent3));
   text-decoration:none;
-  margin-right:16px;
-  box-shadow:0 20px 40px rgba(79,163,255,.4);
+  color:#fff;
+  font-weight:500;
+  box-shadow:0 20px 60px rgba(0,198,255,.45);
+  transition:.3s ease;
 }
 
-/* ================= SERVICES ================= */
-.services{
-  background:transparent;
+.hero .cta:hover{
+  transform:translateY(-4px) scale(1.05);
 }
 
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
+/* ===== SECTION ===== */
+section{
+  padding:120px 20px;
+  max-width:1200px;
+  margin:auto;
 }
 
-.service{
-  padding:40px 30px;
-  border-radius:28px;
-  background:rgba(255,255,255,.75);
-  backdrop-filter:blur(18px);
-  box-shadow:0 30px 80px rgba(0,0,0,.12);
-  transition:.4s ease;
-}
-
-.service:hover{
-  transform:translateY(-10px);
-  box-shadow:0 40px 100px rgba(79,163,255,.25);
-}
-
-.service h3{
-  margin-bottom:12px;
-}
-
-/* ================= CTA ================= */
-.cta{
+.section-title{
+  font-size:2.2rem;
+  margin-bottom:50px;
   text-align:center;
 }
 
-.whatsapp{
-  position:fixed;
-  right:26px;
-  bottom:26px;
-  width:60px;height:60px;
-  border-radius:50%;
-  background:#25D366;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  text-decoration:none;
-  box-shadow:0 20px 40px rgba(0,0,0,.4);
+/* ===== CARDS ===== */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
+}
+
+.card{
+  background:rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:40px 30px;
+  backdrop-filter:blur(14px);
+  box-shadow:0 40px 100px rgba(0,0,0,.8);
+  transition:.4s ease;
+}
+
+.card:hover{
+  transform:translateY(-14px) scale(1.04);
+  box-shadow:0 70px 160px rgba(0,0,0,.95);
+}
+
+.card h3{margin-bottom:12px;}
+.card p{font-size:.9rem;color:#ccc;}
+
+/* ===== FOOTER ===== */
+footer{
+  padding:40px;
+  text-align:center;
+  font-size:.75rem;
+  color:#777;
 }
 </style>
 </head>
 
 <body>
 
+<div class="bg"></div>
+<div class="noise"></div>
+
 <header>
-  <div class="nav">
-    <div class="logo">HIRENIX</div>
-    <div>
-      <a href="#">Home</a>
-      <a href="#services">Services</a>
-      <a href="directors.html">Leadership</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
+  <div class="logo">HIRENIX</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="directors.html">Directors</a>
+    <a href="#">Services</a>
+    <a href="#">Contact</a>
+  </nav>
 </header>
 
 <section class="hero">
-  <div class="container">
-    <div class="hero-box">
-      <h1>Hirenix Group</h1>
-      <p>
-        A diversified business group operating across branding,
-        sustainable manufacturing, global trade and strategic advisory —
-        built with clarity, structure and long-term vision.
-      </p>
-      <div class="actions">
-        <a href="#services" class="btn">Explore Services</a>
-        <a href="#contact" class="btn">Get in Touch</a>
-      </div>
+  <div>
+    <h1>Where Vision<br>Scales Into Impact</h1>
+    <p>
+      Hirenix Group builds, scales and operates ventures with clarity,
+      precision and long-term vision — across industries and borders.
+    </p>
+    <a class="cta" href="directors.html">Explore Leadership</a>
+  </div>
+</section>
+
+<section>
+  <div class="section-title">What We Do</div>
+  <div class="cards">
+    <div class="card">
+      <h3>Strategy</h3>
+      <p>High-level planning, execution frameworks and scalable business models.</p>
+    </div>
+    <div class="card">
+      <h3>Operations</h3>
+      <p>Systems, governance and processes that survive scale and pressure.</p>
+    </div>
+    <div class="card">
+      <h3>Growth</h3>
+      <p>Market entry, expansion, partnerships and long-term value creation.</p>
     </div>
   </div>
 </section>
 
-<section id="services" class="services">
-  <div class="container">
-    <div class="services-grid">
-      <div class="service">
-        <h3>Branding & Identity</h3>
-        <p>High-impact brand systems built for scale and recall.</p>
-      </div>
-      <div class="service">
-        <h3>Eco-Friendly Manufacturing</h3>
-        <p>Sustainable packaging solutions with global standards.</p>
-      </div>
-      <div class="service">
-        <h3>Import & Export</h3>
-        <p>End-to-end global trade support and compliance.</p>
-      </div>
-      <div class="service">
-        <h3>Strategic Advisory</h3>
-        <p>Clarity-driven consulting for long-term growth.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="cta">
-  <div class="container">
-    <h2>Work With Hirenix</h2>
-    <p>Pune, India · Operating Globally</p>
-  </div>
-</section>
-
-<a href="https://wa.me/916006538459" class="whatsapp">💬</a>
+<footer>
+  © Hirenix Group Pvt Ltd — Built with intent.
+</footer>
 
 </body>
 </html>
