@@ -23,5 +23,10 @@ setTimeout(()=>{
   const intro = document.getElementById("intro");
   if(intro) intro.remove();
 },4000);
+// Intro cinematic fade
+window.addEventListener("load", () => {
+  document.body.classList.add("loaded");
+});
+
 
 
