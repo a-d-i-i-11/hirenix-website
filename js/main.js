@@ -18,4 +18,10 @@ revealElements.forEach(el=>{
 });
 
 window.addEventListener('scroll',revealOnScroll);
+// Remove intro after animation
+setTimeout(()=>{
+  const intro = document.getElementById("intro");
+  if(intro) intro.remove();
+},4000);
+
 
