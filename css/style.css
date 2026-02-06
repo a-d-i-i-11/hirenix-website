@@ -7,9 +7,20 @@
 body{
   font-family:'Inter',sans-serif;
   color:#fff;
-  background:#000;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(80,0,120,.35), transparent 60%),
+    radial-gradient(circle at 80% 80%, rgba(0,90,140,.35), transparent 60%),
+    linear-gradient(120deg,#050505,#0b0b14,#050505);
+  animation:bgMove 20s ease infinite;
   overflow-x:hidden;
 }
+
+@keyframes bgMove{
+  0%{background-position:0% 0%}
+  50%{background-position:100% 100%}
+  100%{background-position:0% 0%}
+}
+
 
 /* CINEMATIC GRADIENT BACKGROUND */
 body::before{
