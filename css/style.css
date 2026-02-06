@@ -1,3 +1,39 @@
+/* ===== CINEMATIC BACKGROUND ===== */
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  background: #050505;
+  overflow-x: hidden;
+}
+
+/* Moving cinematic gradient */
+.cinematic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background:
+    radial-gradient(circle at 20% 20%, #1a2a6c, transparent 40%),
+    radial-gradient(circle at 80% 30%, #b21f1f, transparent 45%),
+    radial-gradient(circle at 50% 80%, #0f9b8e, transparent 50%);
+  animation: bgMove 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgMove {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(35deg); }
+}
+
+/* Soft grain (cinema effect) */
+.cinematic-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.08;
+  pointer-events: none;
+}
 *{
   box-sizing:border-box;
   margin:0;
@@ -236,4 +272,32 @@ footer{
   50%{transform:translateX(120vw) translateY(-120px)}
   100%{transform:translateX(0) translateY(0)}
 }
+/* Floating cinematic object */
+.floating-object {
+  position: fixed;
+  top: 30%;
+  left: -20%;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent 70%);
+  filter: blur(60px);
+  animation: floatMove 25s linear infinite;
+  z-index: -2;
+}
+
+@keyframes floatMove {
+  0% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(120vw) translateY(-120px); }
+  100% { transform: translateX(0) translateY(0); }
+}
+/* Intro animation */
+body {
+  opacity: 0;
+  transition: opacity 1.8s ease;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
 
