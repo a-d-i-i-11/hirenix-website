@@ -1,32 +1,13 @@
-// SIMPLE SCROLL REVEAL
-const revealElements = document.querySelectorAll('.service-card');
+// ================= SCROLL REVEAL =================
+const reveals = document.querySelectorAll(".reveal");
 
-const revealOnScroll = () => {
-  revealElements.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 80){
-      el.style.opacity = 1;
-      el.style.transform = "translateY(0)";
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (top < windowHeight - 120) {
+      el.classList.add("active");
     }
   });
-};
-
-revealElements.forEach(el=>{
-  el.style.opacity=0;
-  el.style.transform="translateY(40px)";
-  el.style.transition="0.8s ease";
 });
-
-window.addEventListener('scroll',revealOnScroll);
-// Remove intro after animation
-setTimeout(()=>{
-  const intro = document.getElementById("intro");
-  if(intro) intro.remove();
-},4000);
-// Intro cinematic fade
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-});
-
-
-
